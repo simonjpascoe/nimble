@@ -2,7 +2,7 @@ module D3
 
 open System.IO
 
-let input0 = [
+let input3A = [
   "..##......."
   "#...#...#.."
   ".#....#..#."
@@ -16,9 +16,13 @@ let input0 = [
   ".#..#...#.#"
 ]
 
-let input1 = File.ReadAllLines("./inputs/d3_input.txt")
-              |> List.ofArray
-
+let routes = [
+  1, 1
+  3, 1
+  5, 1
+  7, 1
+  1, 2
+]
 
 let day3a (input : string list) step_right step_down =
   let height = input |> List.length
@@ -30,14 +34,6 @@ let day3a (input : string list) step_right step_down =
 
   let isTree (y,x) = input.[y].[x] = '#'
   coords |> List.filter isTree |> List.length |> int64
-
-let routes = [
-  1, 1
-  3, 1
-  5, 1
-  7, 1
-  1, 2
-]
 
 let day3b input rs =
   rs |> List.map (fun (a,b) -> day3a input a b) |> List.fold (*) 1L

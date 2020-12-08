@@ -1,15 +1,6 @@
 module D8
 
-
-open Nimble.Functional
-open System.IO
-open System
-
-
-let input8 = File.ReadAllLines "./inputs/d8_input.txt"
-              |> List.ofArray
-
-let input8a = [
+let input8A = [
   "nop +0"
   "acc +1"
   "jmp +4"
@@ -21,7 +12,7 @@ let input8a = [
   "acc +6"
 ]
 
-let input8b = [
+let input8B = [
   "nop +0"
   "acc +1"
   "jmp +4"
@@ -71,7 +62,6 @@ let day8a input =
 
   List.unfold (fun (p, a, t) -> eval p a t) (pointer0, accumulator0, tracker0) |> List.last
 
-
 let loopCheck (instructions : Op list) pointer0 =
   let pointerN = instructions |> List.length
   let tracker0 = Map.empty
@@ -88,7 +78,6 @@ let loopCheck (instructions : Op list) pointer0 =
 
   let result = List.unfold (fun (p, t) -> eval p t) (pointer0, tracker0)
   if List.isEmpty result then false else result |> List.last |> fun i -> i < pointerN
-
 
 let day8b input =
   // it's only worth flipping if the change makes a difference
@@ -110,4 +99,3 @@ let day8b input =
                                      | false -> Some (a, (p + 1, a))
 
   List.unfold (fun (p, a) -> eval p a) (pointer0, accumulator0) |> List.last
-
