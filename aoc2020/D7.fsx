@@ -1,5 +1,3 @@
-module D7
-
 let input7A = [
   "light red bags contain 1 bright white bag, 2 muted yellow bags."
   "dark orange bags contain 3 bright white bags, 4 muted yellow bags."

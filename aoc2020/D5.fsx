@@ -1,11 +1,3 @@
-module D5
-
-open System.IO
-
-
-let input5 = File.ReadAllLines "./data/aoc/2020/d5_input.txt"
-              |> List.ofArray
-
 // zero based
 let maxrow = 127
 let maxcol = 7

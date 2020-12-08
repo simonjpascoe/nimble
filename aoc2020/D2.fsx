@@ -1,7 +1,4 @@
-module D2
-
 open System.Text.RegularExpressions
-open System.IO
 
 let isValidPwd p =
   let r = Regex("^(\d*)-(\d*)\s([a-z]):\s(\w*)$")

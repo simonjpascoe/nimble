@@ -1,5 +1,3 @@
-module D3
-
 open System.IO
 
 let input3A = [

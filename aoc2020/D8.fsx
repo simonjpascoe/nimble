@@ -1,5 +1,3 @@
-module D8
-
 let input8A = [
   "nop +0"
   "acc +1"
