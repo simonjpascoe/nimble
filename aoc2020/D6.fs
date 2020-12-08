@@ -1,3 +1,5 @@
+module D6
+
 open System.IO
 open System
 

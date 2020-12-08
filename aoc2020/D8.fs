@@ -1,6 +1,7 @@
-#load "common.fsx"
+module D8
 
-open Common
+
+open Nimble.Functional
 open System.IO
 open System
 

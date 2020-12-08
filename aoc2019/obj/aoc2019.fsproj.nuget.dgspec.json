@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Code\\fcompete\\aoc2019\\aoc2019.fsproj": {}
+    "C:\\Code\\github\\nimble\\aoc2019\\aoc2019.fsproj": {}
   },
   "projects": {
-    "C:\\Code\\fcompete\\aoc2019\\aoc2019.fsproj": {
+    "C:\\Code\\github\\nimble\\aoc2019\\aoc2019.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Code\\fcompete\\aoc2019\\aoc2019.fsproj",
+        "projectUniqueName": "C:\\Code\\github\\nimble\\aoc2019\\aoc2019.fsproj",
         "projectName": "aoc2019",
-        "projectPath": "C:\\Code\\fcompete\\aoc2019\\aoc2019.fsproj",
+        "projectPath": "C:\\Code\\github\\nimble\\aoc2019\\aoc2019.fsproj",
         "packagesPath": "C:\\Users\\simon\\.nuget\\packages\\",
-        "outputPath": "C:\\Code\\fcompete\\aoc2019\\obj\\",
+        "outputPath": "C:\\Code\\github\\nimble\\aoc2019\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
