@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "MPZAHBB/Y9Bk7DoK29pbjkAfUiJl0B4JGjZza4RgU2KFTJ4k4mz7FMolCGjlxdhC3NfUWNtRtGwkBdS0mXf/Uw==",
+  "success": true,
+  "projectFilePath": "C:\\Code\\github\\fcompete\\nimble\\nimble.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\simon\\.nuget\\packages\\fsharp.core\\4.7.1\\fsharp.core.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "yzQBZHO8wBAeYa2l2eYaT9vHGBQVrCM1KuRuH/6BkXsfmoE6724GpZMUlDkMwy0z0362q9rMCrG/I8C7QRm7CQ==",
+  "success": true,
+  "projectFilePath": "C:\\Code\\fcompete\\aoc2019\\aoc2019.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\simon\\.nuget\\packages\\fsharp.core\\4.7.1\\fsharp.core.4.7.1.nupkg.sha512",
+    "C:\\Users\\simon\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\simon\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

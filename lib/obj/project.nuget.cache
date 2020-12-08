@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "4W9yBwtlKnpebCpBWFXTgyYq6syvOtdzohPEA2GhyubjfmNqnIpVFUJjThYAih1rgBwho/17b4/rRiBEl0eL8A==",
+  "success": true,
+  "projectFilePath": "C:\\Code\\github\\fcompete\\lib\\lib.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\simon\\.nuget\\packages\\fsharp.core\\4.7.1\\fsharp.core.4.7.1.nupkg.sha512",
+    "C:\\Users\\simon\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\simon\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
