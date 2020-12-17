@@ -64,7 +64,7 @@ let getSurrounding4 (state : P4 Set) ((a,b,c,d) : P4) =
 let day17a (input : string list) =
   let state0 = preprocess3 input
 
-  let stepb state =
+  let stepa state =
     let ((xl,xu),(yl,yu),(zl,zu)) = bounds3 state
     let index = [for x in [xl-1 .. xu+1] do
                   for y in [yl-1 .. yu+1] do
@@ -81,14 +81,14 @@ let day17a (input : string list) =
                        |> Set.ofList
 
     state2
-  state0 |> applyFn stepb 6 |> Set.count
+  state0 |> applyFn stepa 6 |> Set.count
 
 // part b is just a ~~simple extension~~ copy of part a; takes 13s locally.
 let day17b (input : string list) =
   let state0 = preprocess4 input
 
-  let stepa state =
-    let ((xl,xu),(yl,yu),(zl,zu), (wl,wu)) = bounds4 state
+  let stepb state =
+    let ((xl,xu),(yl,yu),(zl,zu),(wl,wu)) = bounds4 state
     let index = [for x in [xl-1 .. xu+1] do
                   for y in [yl-1 .. yu+1] do
                    for z in [zl-1 .. zu+1] do
@@ -105,4 +105,4 @@ let day17b (input : string list) =
                        |> Set.ofList
 
     state2
-  state0 |> applyFn stepa 6 |> Set.count
+  state0 |> applyFn stepb 6 |> Set.count
