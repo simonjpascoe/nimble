@@ -19,6 +19,8 @@ let applyFn f n state0 = List.replicate n f |> List.fold (fun s fn -> fn s) stat
 
 module Seq =
   let minmax xs = (Seq.min &&& Seq.max) xs
+  let maxVvIx zv = Seq.fold (fun (i, j, msf) t -> if t > msf then (i+1, i, t) else (i+1, j, msf)) (0, -1, zv)
+                     >> fun (i,j,k) -> (j, k)
 
 module List =
   let fold1 fn xs =
