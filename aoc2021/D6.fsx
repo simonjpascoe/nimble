@@ -8,22 +8,17 @@ open Nimble.Functional
 open Nimble.AOC
 
 let parse input =
-  input |> List.head |> ints
+  input |> List.head |> ints64
 
-let day6a days fish =
-  let step1 fishy =
-    match fishy with
-      | 0 -> [6; 8]
-      | n -> [n-1]
-  let step fishes = List.collect step1 fishes
-  applyNtimes step days fish
+let day6 n (fish : int64 list) =
+  // there are no `zero` fish to start with, not all states may be present
+  let state00 = fish |> List.countBy id |> List.map (second int64) |> Map.ofList
+  let state0 = [0L..8L] |> List.map (fun i -> Map.tryFind i state00 |> Option.defaultValue 0L)
 
-// of course part 1 is easy to brute force
-// part 2 using the same algo, blows up
-
-let day6b days fish =
-  // determine the formula for fishy
-  // given a single fish, after n steps, how many fish
-  // do we have?
-
-  1
+  let step state =
+    state |> List.mapi (fun i _ -> match i with
+                                    | 6 -> state.[7] + state.[0]
+                                    | 8 -> state.[0]
+                                    | j -> state.[j+1]
+                                    )
+  applyNtimes step n state0 |> List.sum

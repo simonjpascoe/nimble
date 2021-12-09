@@ -1,5 +1,6 @@
 module Nimble.AOC
 
+open System
 open System.IO
 open System.Text.RegularExpressions
 
@@ -42,3 +43,5 @@ let ints64 str =
   Regex.Matches(str, "(\d*)")
     |> Seq.choose (fun m -> if m.Value <> "" then Some (int64 m.Value) else None)
     |> List.ofSeq
+
+let bin2int64 s = Convert.ToInt64(s, 2)
