@@ -34,9 +34,7 @@ let step (count0: int, consortium: int list list) =
                                |> Map.ofList
     count + List.length tflashers, flash tflashers increments state
 
-  let count2, c3 = match applyUntil substep (fun _ -> false) (0, c2)
-                     with | Choice1Of2 _ -> failwith "illogical"
-                          | Choice2Of2 x -> x
+  let count2, c3 = applyUntilSteady substep (0, c2)
 
   // then reset inner flashers to 0
   let c4 = c3 |> List.map2di (fun r c v ->
