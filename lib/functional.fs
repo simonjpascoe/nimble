@@ -45,3 +45,6 @@ module List =
               let ys1, ys2 = (List.take ln &&& List.skip ln) ys
               let zs1, zs2 = (treeReduce fn ys1, treeReduce fn ys2)
               fn zs1 zs2
+
+  let map2di (fn: int -> int -> 'a -> 'b) (xs: 'a list list) =
+    xs |> List.mapi (fun r cols -> cols |> List.mapi (fun c v -> fn r c v))
