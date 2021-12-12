@@ -11,7 +11,7 @@ let preprocess = List.fold (fun (s1, s2) t -> if t <> "" then (s1, s2 @ [t]) els
                   >> fun (a,b) -> a @ [b]
                   >> List.map (fun xs -> String.Join(" ", xs))
 
-let input0 = [
+let input4A = [
   "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd"
   "byr:1937 iyr:2017 cid:147 hgt:183cm"
   ""
@@ -27,7 +27,7 @@ let input0 = [
   "iyr:2011 ecl:brn hgt:59in"
 ]
 
-let input00 = [
+let input4B = [
   "eyr:1972 cid:100"
   "hcl:#18171d ecl:amb hgt:170 pid:186cm iyr:2018 byr:1926"
   ""
@@ -56,15 +56,11 @@ let input00 = [
   "iyr:2010 hgt:158cm hcl:#b6652a ecl:blu byr:1944 eyr:2021 pid:093154719"
 ]
 
-let input1 = File.ReadAllLines "./inputs/d4_input.txt" |> List.ofArray |> List.append [""]
-
 let day4a (data : string list) =
-
   let required = ["byr"; "iyr"; "eyr"; "hgt"; "hcl"; "ecl"; "pid"] |> Set.ofList
   let keys = data |> List.map (fun passport -> Regex.Matches(passport, "(\w*):") |> Seq.map (fun w -> w.Groups.[1].Value) |> Set.ofSeq)
   let valid = keys |> List.filter (fun s -> required - s |> Set.isEmpty)
   valid
-
 
 let day4b (data : string list) =
   let pairs = data |> List.map (fun passport -> Regex.Matches(passport, "(\w*):([#\w]*)") |> Seq.map (fun w -> (w.Groups.[1].Value, w.Groups.[2].Value)) |> Map.ofSeq)

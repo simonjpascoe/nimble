@@ -3,9 +3,6 @@ module D2
 open System.Text.RegularExpressions
 open System.IO
 
-let input = File.ReadAllLines("./inputs/d2_input.txt")
-              |> List.ofArray
-
 let isValidPwd p =
   let r = Regex("^(\d*)-(\d*)\s([a-z]):\s(\w*)$")
   let m = r.Matches(p).[0].Groups
@@ -28,3 +25,7 @@ let isValidPwd2 p =
   let tb = parameters.pwd.[parameters.max-1] = parameters.char
   let valid = ta <> tb
   valid
+
+let day2a = List.filter isValidPwd >> List.length
+
+let day2b = List.filter isValidPwd2 >> List.length

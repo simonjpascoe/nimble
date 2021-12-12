@@ -1,10 +1,9 @@
 module D5
 
 open System.IO
-open System
-open System.Text.RegularExpressions
 
-let input5 = File.ReadAllLines "./inputs/d5_input.txt"
+
+let input5 = File.ReadAllLines "./data/aoc/2020/d5_input.txt"
               |> List.ofArray
 
 // zero based
@@ -25,7 +24,8 @@ let decode (identification : string) =
   let (col,_) = lr |> Array.fold (fun s t -> split 'R' s t ) (0, maxcol)
   row, col
 
-let day5a input =
-  input |> List.map (decode >> fun (r,c) -> r*8 + c)
-        |> List.max
-let day5b input = 739 // solved with pen'n'paper
+let day5a = List.map (decode >> fun (r,c) -> r*8 + c)
+              >> List.max
+
+let day5b _ = 739   // solved with pen'n'paper
+

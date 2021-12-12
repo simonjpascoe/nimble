@@ -1,18 +1,14 @@
 module D1
 
-open System.IO
+let day1a0 input = [for a in input do
+                     for b in input do
+                      if a+b = 2020 then yield (a,b,a*b)]
 
-let input = File.ReadAllLines("./inputs/d1_input.txt")
-              |> List.ofArray
-              |> List.map int
+let day1b0 input = [for a in input do
+                     for b in input do
+                      for c in input do
+                       if a+b+c = 2020 then yield (a,b,c,a*b*c)]
 
-let result1 = [for a in input do
-                for b in input do
-                if a+b = 2020 then yield (a,b,a*b)]
+let day1a (input : string list) = input |> List.map int |> day1a0
 
-let result2 = [for a in input do
-               for b in input do
-                for c in input do
-                 if a+b+c = 2020 then yield (a,b,c,a*b*c)]
-
-printfn "%A,%A" (result1, result2)
+let day1b (input : string list) = input |> List.map int |> day1b0
