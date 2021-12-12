@@ -1,5 +1,3 @@
-module D1
-
 let day1a0 input = [for a in input do
                      for b in input do
                       if a+b = 2020 then yield (a,b,a*b)]

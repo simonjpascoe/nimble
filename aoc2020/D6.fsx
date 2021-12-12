@@ -1,4 +1,4 @@
-module D6
+#load "./../lib/functional.fs"
 
 open System
 open Nimble.Functional

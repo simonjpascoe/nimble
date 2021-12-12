@@ -1,5 +1,5 @@
 #load @"./lib/aoc.fs"
-#load @"./aoc2020/D7.fs"
+#load @"./aoc2020/D7.fsx"
 
 open Nimble.AOC
 open D7
