@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4W9yBwtlKnpebCpBWFXTgyYq6syvOtdzohPEA2GhyubjfmNqnIpVFUJjThYAih1rgBwho/17b4/rRiBEl0eL8A==",
+  "dgSpecHash": "id57gKbi4SjRbFiDIVvvuSvuQRwGZ2403rxS5UysueqxqEieLpgyTp6YYKz4e2LHznR5No7uTmccPgeccs8MmQ==",
   "success": true,
-  "projectFilePath": "C:\\Code\\github\\fcompete\\lib\\lib.fsproj",
+  "projectFilePath": "C:\\Code\\github\\nimble\\lib\\lib.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\simon\\.nuget\\packages\\fsharp.core\\4.7.1\\fsharp.core.4.7.1.nupkg.sha512",
     "C:\\Users\\simon\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

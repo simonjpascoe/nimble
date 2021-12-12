@@ -75,6 +75,19 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "FSharp.Core": "4.7.1"
+        },
+        "compile": {
+          "bin/placeholder/lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/lib.dll": {}
+        }
       }
     }
   },
@@ -269,12 +282,18 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "lib/1.0.0": {
+      "type": "project",
+      "path": "../lib/lib.fsproj",
+      "msbuildProject": "../lib/lib.fsproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "FSharp.Core >= 4.7.1",
-      "NETStandard.Library >= 2.0.3"
+      "NETStandard.Library >= 2.0.3",
+      "lib >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -284,11 +303,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\fcompete\\aoc2020\\aoc2020.fsproj",
+      "projectUniqueName": "C:\\Code\\github\\nimble\\aoc2020\\aoc2020.fsproj",
       "projectName": "aoc2020",
-      "projectPath": "C:\\Code\\fcompete\\aoc2020\\aoc2020.fsproj",
+      "projectPath": "C:\\Code\\github\\nimble\\aoc2020\\aoc2020.fsproj",
       "packagesPath": "C:\\Users\\simon\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\fcompete\\aoc2020\\obj\\",
+      "outputPath": "C:\\Code\\github\\nimble\\aoc2020\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -307,7 +326,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Code\\github\\nimble\\lib\\lib.fsproj": {
+              "projectPath": "C:\\Code\\github\\nimble\\lib\\lib.fsproj"
+            }
+          }
         }
       }
     },

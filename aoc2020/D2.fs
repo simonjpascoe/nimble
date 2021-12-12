@@ -1,3 +1,5 @@
+module D2
+
 open System.Text.RegularExpressions
 open System.IO
 

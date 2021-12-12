@@ -1,3 +1,5 @@
+module D1
+
 open System.IO
 
 let input = File.ReadAllLines("./inputs/d1_input.txt")

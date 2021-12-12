@@ -8,6 +8,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="D1.fs" />
+    <Compile Include="D2.fs" />
+    <Compile Include="D3.fs" />
+    <Compile Include="D4.fs" />
+    <Compile Include="D5.fs" />
+    <Compile Include="D6.fs" />
+    <Compile Include="D7.fs" />
+    <Compile Include="D8.fs" />
   </ItemGroup>
 </Project>

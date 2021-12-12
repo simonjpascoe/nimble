@@ -284,11 +284,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\github\\fcompete\\lib\\lib.fsproj",
+      "projectUniqueName": "C:\\Code\\github\\nimble\\lib\\lib.fsproj",
       "projectName": "lib",
-      "projectPath": "C:\\Code\\github\\fcompete\\lib\\lib.fsproj",
+      "projectPath": "C:\\Code\\github\\nimble\\lib\\lib.fsproj",
       "packagesPath": "C:\\Users\\simon\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\github\\fcompete\\lib\\obj\\",
+      "outputPath": "C:\\Code\\github\\nimble\\lib\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
