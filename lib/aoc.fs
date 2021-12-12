@@ -22,6 +22,11 @@ let loadInput year day =
     |> File.ReadAllLines
     |> List.ofArray
 
+let loadSampleInput year day =
+  sprintf "./data/aoc/%d/d%d_input_sample.txt" year day
+    |> File.ReadAllLines
+    |> List.ofArray
+
 let between   left right x = (left < x) && (x < right)
 let betweenL  left right x = (left <= x) && (x < right)
 let betweenR  left right x = (left < x) && (x <= right)

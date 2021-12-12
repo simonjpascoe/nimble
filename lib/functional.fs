@@ -1,5 +1,6 @@
 module Nimble.Functional
 
+let flip (a, b) = (b, a)
 let first  f (a, b) = (f a, b)
 let second f (a, b) = (a, f b)
 
@@ -16,6 +17,14 @@ let thd4 (_,_,c,_) = c
 let fth4 (_,_,_,d) = d
 
 let applyFn f n state0 = List.replicate n f |> List.fold (fun s fn -> fn s) state0
+
+let rec applyUntil f  pred state0 =
+  let state1 = f state0
+  match state0 = state1 with
+    | true -> Choice2Of2 state0
+    | false -> match pred state1 with
+                 | true  -> Choice1Of2 state1
+                 | false -> applyUntil f pred state1
 
 module Seq =
   let minmax xs = (Seq.min &&& Seq.max) xs
