@@ -10,6 +10,8 @@ let timeit f =
   printfn "Elapsed = %i" timer.ElapsedMilliseconds
   result
 
+let flag = function true -> 1 | false -> 0
+
 let applyNtimes f n input =
   List.fold (fun s _ -> f s) input [1..n]
 
