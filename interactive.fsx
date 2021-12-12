@@ -1,8 +1,10 @@
 #load @"./lib/aoc.fs"
-#load @"./aoc2020/D7.fsx"
+#load @"./aoc2020/D10.fsx"
 
 open Nimble.AOC
-open D7
+open D10
 
-let input = loadInput 2020 7
-let output = day7a input
+let input = loadInput 2020 10 |> List.map int64
+
+let output1 = day10a input
+let output2 = day10b input
