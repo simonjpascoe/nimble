@@ -70,12 +70,11 @@ let day9b input =
 
   let step state = state |> List.mapi (fun r cs -> cs |> List.mapi (fun c v -> f state r c))
 
-  let staten = applyUntil step (fun _ -> false) state0
-  match staten with
-    | Choice2Of2 t -> List.collect id t |> List.countBy id
-                                        |> List.filter (fun p -> fst p >= 0)
-                                        |> List.sortByDescending snd
-                                        |> List.take 3
-                                        |> List.map snd
-                                        |> List.fold (fun s t -> s * t) 1
-    | Choice1Of2 _ -> failwith "illogical"
+  applyUntilSteady step state0
+   |> List.collect id
+   |> List.countBy id
+   |> List.filter (fun p -> fst p >= 0)
+   |> List.sortByDescending snd
+   |> List.take 3
+   |> List.map snd
+   |> List.fold (fun s t -> s * t) 1

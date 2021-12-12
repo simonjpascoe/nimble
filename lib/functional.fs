@@ -26,6 +26,11 @@ let rec applyUntil f  pred state0 =
                  | true  -> Choice1Of2 state1
                  | false -> applyUntil f pred state1
 
+let applyUntilSteady f state0 =
+  match applyUntil f (fun _ -> false) state0 with
+    | Choice1Of2 _ -> failwith "illogical"
+    | Choice2Of2 x -> x
+
 module Seq =
   let minmax xs = (Seq.min &&& Seq.max) xs
   let maxVvIx zv = Seq.fold (fun (i, j, msf) t -> if t > msf then (i+1, i, t) else (i+1, j, msf)) (0, -1, zv)
