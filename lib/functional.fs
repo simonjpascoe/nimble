@@ -6,6 +6,19 @@ let second f (a, b) = (a, f b)
 let ( &&& ) f g a = (f a, g a)
 let ( *** ) f g (a, b) = (f a, g b)
 
+let fst3 (a,_,_) = a
+let snd3 (_,b,_) = b
+let thd3 (_,_,c) = c
+
+let fst4 (a,_,_,_) = a
+let snd4 (_,b,_,_) = b
+let thd4 (_,_,c,_) = c
+let fth4 (_,_,_,d) = d
+
+let applyFn f n state0 = List.replicate n f |> List.fold (fun s fn -> fn s) state0
+
+module Seq =
+  let minmax xs = (Seq.min &&& Seq.max) xs
 
 module List =
   let fold1 fn xs =
