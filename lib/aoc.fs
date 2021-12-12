@@ -46,3 +46,13 @@ let ints64 str =
 
 let bin2int64 s = Convert.ToInt64(s, 2)
 let inline char2int (s: char) = int s - int '0'
+
+let pad_matrix (v : 'a) (m : 'a list list) =
+  let m2 = m |> List.map (fun r -> List.concat [[v]; r; [v]])
+  let n = [List.length m2 |> fun c -> List.replicate c v]
+  List.concat [n;m2;n]
+
+let adjacents diags (x, y) =
+  if diags
+    then [x-1, y-1; x,y-1; x+1, y-1; x-1, y; x+1, y; x-1, y+1; x, y+1; x+1, y+1]
+    else [x-1,y; x, y-1; x+1,y; x, y+1]
