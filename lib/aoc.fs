@@ -45,3 +45,4 @@ let ints64 str =
     |> List.ofSeq
 
 let bin2int64 s = Convert.ToInt64(s, 2)
+let inline char2int (s: char) = int s - int '0'
