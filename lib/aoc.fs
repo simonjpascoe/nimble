@@ -33,6 +33,11 @@ let betweenL  left right x = (left <= x) && (x < right)
 let betweenR  left right x = (left < x) && (x <= right)
 let betweenLR left right x = (left <= x) && (x <= right)
 
+let words str =
+  Regex.Matches(str, "(\w*)")
+    |> Seq.choose (fun m -> if m.Value <> "" then Some m.Value else None)
+    |> List.ofSeq
+
 let ints str =
   Regex.Matches(str, "(\d*)")
     |> Seq.choose (fun m -> if m.Value <> "" then Some (int m.Value) else None)
