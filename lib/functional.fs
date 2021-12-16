@@ -31,6 +31,16 @@ let applyUntilSteady f state0 =
     | Choice1Of2 _ -> failwith "illogical"
     | Choice2Of2 x -> x
 
+let rec unfoldUntil f pred state0 = 
+  let result, state1 = f state0
+  match state1 = state0 with
+    | true  -> [result], state1
+    | false -> match pred result state1 with
+                 | true  -> [result], state1
+                 | false -> let xs, sn = unfoldUntil f pred state1
+                            result :: xs, sn
+
+ 
 module Seq =
   let minmax xs = (Seq.min &&& Seq.max) xs
   let maxVvIx zv = Seq.fold (fun (i, j, msf) t -> if t > msf then (i+1, i, t) else (i+1, j, msf)) (0, -1, zv)
