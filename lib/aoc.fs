@@ -49,6 +49,7 @@ let ints64 str =
     |> Seq.choose (fun m -> if m.Value <> "" then Some (int64 m.Value) else None)
     |> List.ofSeq
 
+let bin2int s = Convert.ToInt32(s, 2)
 let bin2int64 s = Convert.ToInt64(s, 2)
 let inline char2int (s: char) = int s - int '0'
 
@@ -61,3 +62,8 @@ let adjacents diags (x, y) =
   if diags
     then [x-1, y-1; x,y-1; x+1, y-1; x-1, y; x+1, y; x-1, y+1; x, y+1; x+1, y+1]
     else [x-1,y; x, y-1; x+1,y; x, y+1]
+
+let chunkString n (s: string) =
+  s.ToCharArray() |> Array.chunkBySize n |> Array.map (fun s -> String(s)) |> Array.toList
+
+let streamTake n (stream: char array) = (debugn (Array.take n stream)), Array.skip n stream
