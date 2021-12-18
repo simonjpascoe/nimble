@@ -18,6 +18,8 @@ let applyNtimes f n input =
 
 let debugn a = printfn "%A" a; a
 
+let debugf f a = printfn "%A" (f a); a
+
 let loadInput year day =
   sprintf "./data/aoc/%d/d%d_input.txt" year day
     |> File.ReadAllLines
