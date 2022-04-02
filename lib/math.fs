@@ -4,6 +4,8 @@ let pmod a b =
   let r = a % b
   if r < 0L then r + b else r
 
+let iabs i = if i < 0 then -i else i
+
 let extendedEuclidean a b =
   let r0 = (a, b)
   let s0 = (1L, 0L)
