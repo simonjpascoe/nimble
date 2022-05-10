@@ -1,0 +1,1 @@
+python ..\interactive_runner.py python p04_testing_tool.py 0 -- dotnet fsi p04.fsx
