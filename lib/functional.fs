@@ -4,6 +4,10 @@ let flip (a, b) = (b, a)
 let first  f (a, b) = (f a, b)
 let second f (a, b) = (a, f b)
 
+let first3  f (a, b, c) = (f a, b, c)
+let second3 f (a, b, c) = (a, f b, c)
+let third3  f (a, b, c) = (a, b, f c)
+
 let ( &&& ) f g a = (f a, g a)
 let ( *** ) f g (a, b) = (f a, g b)
 
@@ -63,3 +67,5 @@ module List =
 
   let map2di (fn: int -> int -> 'a -> 'b) (xs: 'a list list) =
     xs |> List.mapi (fun r cols -> cols |> List.mapi (fun c v -> fn r c v))
+
+  let capfloor minv maxv = List.map (fun x -> max (min maxv x) minv)

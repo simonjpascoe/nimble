@@ -61,7 +61,7 @@ let pad_matrix (v : 'a) (m : 'a list list) =
   List.concat [n;m2;n]
 
 let adjacents diags (x0, x1) (y0, y1) (x, y) =
-  let f (X,Y) = if (X>=x0) && (Y>=y0) && (X<=x1) & (Y<=y1) then Some (X,Y) else None
+  let f (X,Y) = if (X>=x0) && (Y>=y0) && (X<=x1) && (Y<=y1) then Some (X,Y) else None
   List.choose f <| if diags
     then [x-1, y-1; x,y-1; x+1, y-1; x-1, y; x+1, y; x-1, y+1; x, y+1; x+1, y+1]
     else [x-1,y; x, y-1; x+1,y; x, y+1]
