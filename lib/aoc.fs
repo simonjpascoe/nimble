@@ -57,7 +57,7 @@ let inline char2int (s: char) = int s - int '0'
 
 let pad_matrix (v : 'a) (m : 'a list list) =
   let m2 = m |> List.map (fun r -> List.concat [[v]; r; [v]])
-  let n = [List.length m2 |> fun c -> List.replicate c v]
+  let n = [List.length m2[0] |> fun c -> List.replicate c v]
   List.concat [n;m2;n]
 
 let adjacents diags (x0, x1) (y0, y1) (x, y) =
