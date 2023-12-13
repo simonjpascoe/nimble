@@ -1,6 +1,8 @@
 module Nimble.Functional
 
-let flip (a, b) = (b, a)
+let swap (a, b) = (b, a)
+let flip f a b = f b a
+
 let first  f (a, b) = (f a, b)
 let second f (a, b) = (a, f b)
 
@@ -20,6 +22,9 @@ let snd4 (_,b,_,_) = b
 let thd4 (_,_,c,_) = c
 let fth4 (_,_,_,d) = d
 
+let curry f = fun a b -> f (a, b)
+let uncurry f = fun (a,b) -> f a b
+
 let applyFn f n state0 = List.replicate n f |> List.fold (fun s fn -> fn s) state0
 
 let rec applyUntil f  pred state0 =
@@ -35,7 +40,7 @@ let applyUntilSteady f state0 =
     | Choice1Of2 _ -> failwith "illogical"
     | Choice2Of2 x -> x
 
-let rec unfoldUntil f pred state0 = 
+let rec unfoldUntil f pred state0 =
   let result, state1 = f state0
   match state1 = state0 with
     | true  -> [result], state1
@@ -44,17 +49,25 @@ let rec unfoldUntil f pred state0 =
                  | false -> let xs, sn = unfoldUntil f pred state1
                             result :: xs, sn
 
- 
+
 module Seq =
   let minmax xs = (Seq.min &&& Seq.max) xs
   let maxVvIx zv = Seq.fold (fun (i, j, msf) t -> if t > msf then (i+1, i, t) else (i+1, j, msf)) (0, -1, zv)
                      >> fun (i,j,k) -> (j, k)
 
 module List =
+  let pad n v xs =
+    let m = List.length xs
+    if m < n then (xs @ List.replicate (n-m) v) else xs
+
   let fold1 fn xs =
     match xs with
       | [] -> failwith "Empty list provided, no state to lift"
       | x::xs -> List.fold fn x xs
+
+  let splitByMarker marker xs =
+    xs |> List.fold (fun (ys, y) t -> if t = marker then (ys @ [y], []) else (ys, y @ [t])) ([],[])
+       |> fun (ys, y) -> ys @ [y]
 
   let rec treeReduce (fn: 'a->'a->'a) (xs: 'a list) =
     match xs with
@@ -69,3 +82,10 @@ module List =
     xs |> List.mapi (fun r cols -> cols |> List.mapi (fun c v -> fn r c v))
 
   let capfloor minv maxv = List.map (fun x -> max (min maxv x) minv)
+
+
+  let all = List.fold (fun s t -> s && t) true
+
+  let paperfold1 n fn xs =
+    let left, right = xs |> (List.take n >> List.rev &&& List.skip n)
+    Seq.map2 fn left right |> Seq.toList

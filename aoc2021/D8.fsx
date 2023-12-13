@@ -76,5 +76,5 @@ let deduce ((xs : Set<char> list), vals) =
   let multi (xs: int list)= 1000 * xs.[0] + 100 * xs.[1] + 10*xs.[2] + xs.[3]
   match keys with
     | Choice2Of2 _ -> failwith "insufficient logic"
-    | Choice1Of2 (ks, _) -> let ks2 = ks |> Map.toList |> List.map flip |> Map.ofList
+    | Choice1Of2 (ks, _) -> let ks2 = ks |> Map.toList |> List.map swap |> Map.ofList
                             vals |> List.map (fun v -> Map.find v ks2) |> multi

@@ -30,10 +30,22 @@ let loadSampleInput year day =
     |> File.ReadAllLines
     |> List.ofArray
 
+let yourPuzzleInput year day sample =
+  let name = if sample then "input_sample" else "input"
+  sprintf "./data/aoc/%d/d%d_%s.txt" year day name
+    |> File.ReadAllLines
+    |> List.ofArray
+
 let between   left right x = (left < x) && (x < right)
 let betweenL  left right x = (left <= x) && (x < right)
 let betweenR  left right x = (left < x) && (x <= right)
 let betweenLR left right x = (left <= x) && (x <= right)
+
+let matches n a b = (Seq.toList <| Seq.take n a) = (Seq.take n b |> Seq.toList)
+
+let findMatchingLength a b =
+  let n = min (Seq.length a) (Seq.length b)
+  [1..n] |> List.fold (fun s n -> if matches n a b then n else s) 0
 
 let words str =
   Regex.Matches(str, "(\w*)")
@@ -45,7 +57,6 @@ let ints str =
     |> Seq.choose (fun m -> if m.Value <> "" then Some (int m.Value) else None)
     |> List.ofSeq
 
-
 let ints64 str =
   Regex.Matches(str, "(\d*)")
     |> Seq.choose (fun m -> if m.Value <> "" then Some (int64 m.Value) else None)
@@ -54,6 +65,8 @@ let ints64 str =
 let bin2int s = Convert.ToInt32(s, 2)
 let bin2int64 s = Convert.ToInt64(s, 2)
 let inline char2int (s: char) = int s - int '0'
+
+let to2Dca = List.map (fun (s: string) -> s.ToCharArray()) >> List.toArray
 
 let pad_matrix (v : 'a) (m : 'a list list) =
   let m2 = m |> List.map (fun r -> List.concat [[v]; r; [v]])
