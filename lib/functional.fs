@@ -25,7 +25,9 @@ let fth4 (_,_,_,d) = d
 let curry f = fun a b -> f (a, b)
 let uncurry f = fun (a,b) -> f a b
 
-let applyFn f n state0 = List.replicate n f |> List.fold (fun s fn -> fn s) state0
+let applyFn f n state0 = Seq.replicate n f |> Seq.fold (fun s fn -> fn s) state0
+
+let applyFnMF f n state0 = Seq.replicate n f |> Seq.mapFold (fun s fn -> fn s) state0
 
 let rec applyUntil f  pred state0 =
   let state1 = f state0
