@@ -16,8 +16,9 @@ let flag = function true -> 1 | false -> 0
 let applyNtimes f n input =
   List.fold (fun s _ -> f s) input [1..n]
 
+let debugpt a b = printfn "%A" a; b
 let debugn a = printfn "%A" a; a
-
+let debugnl l a = printfn "%A %A" l a; a
 let debugf f a = printfn "%A" (f a); a
 
 let loadInput year day =
@@ -46,6 +47,11 @@ let matches n a b = (Seq.toList <| Seq.take n a) = (Seq.take n b |> Seq.toList)
 let findMatchingLength a b =
   let n = min (Seq.length a) (Seq.length b)
   [1..n] |> List.fold (fun s n -> if matches n a b then n else s) 0
+
+let alphaWords str =
+  Regex.Matches(str, "([a-zA-Z])*")
+    |> Seq.choose (fun m -> if m.Value <> "" then Some m.Value else None)
+    |> List.ofSeq
 
 let words str =
   Regex.Matches(str, "(\w*)")
